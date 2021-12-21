@@ -2,7 +2,7 @@ import { CogIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { colorsState } from "../atoms/colorsState";
-import connectToClarifai from "../helper/clarifai";
+import connectToClarifai from "../helper/Clarifai";
 
 function UploadImage() {
   const placeholder =

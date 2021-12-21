@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { canvasState, colorsState } from "../atoms/colorsState";
 import Canvas from "./Canvas";
-import Rectangle from "./Rectangle";
 
 function Palette() {
   const canvas = useRecoilValue(canvasState);
