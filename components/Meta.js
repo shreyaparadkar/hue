@@ -14,7 +14,7 @@ const Meta = ({ title, keywords, description }) => {
 };
 
 Meta.defaultProps = {
-  title: "Swatches",
+  title: "Hue",
   keywords: "color, colors, palette, photos, hues, swatches, custom",
   description: "Generate custom color palattes from photos",
 };
