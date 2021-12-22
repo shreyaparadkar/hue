@@ -1,27 +1,49 @@
-# Next.js + Tailwind CSS Example
+# Hue
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+Hue is a webapp to help generate custom color palettes from images. Simply enter the image URL and download the created color palette.
 
-## Preview
+<br>
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## **Preview**
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+Check out the deployed version: [Hue](https://hue-beta.vercel.app/)
 
-## Deploy your own
+<br>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## **Built with**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+- [Next.js](https://nextjs.org/) - React framework for production
+- [React](https://reactjs.org/) - A javascript library for building user interfaces
+- [Tailwind](https://tailwindcss.com/) - A utility-first CSS framework to build modern websites
+- [Recoil](https://recoiljs.org/) - State management library for react
+- [Hero icons](https://heroicons.com/) - Hand-crafted SVG icons, by the makers of Tailwind CSS
+- [Clarifai](https://github.com/Clarifai/clarifai-javascript) - Official Clarifai JavaScript client for browsers and node.js
+- [Vercel](https://vercel.com/) - Used for deployment
 
-## How to use
+<br>
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## **Local Development setup**
+
+You will require npm to be able to run this application locally. Download npm from [here](https://www.npmjs.com/)
+
+To setup and get all the dependencies, run the following:
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+git clone https://github.com/shreyaparadkar/hue.git
+# or clone your own fork
+
+cd hue
+npm i
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+To run application locally, on port 5000:
+
+```cmd
+npm run dev
+```
+
+To build application:
+
+```cmdss
+npm run build
+```
