@@ -2,11 +2,9 @@
 
 Hue is a webapp to help generate custom color palettes from images. Simply enter the image URL and download the created color palette.
 
-
 ## **Preview**
 
 Check out the deployed version: [Hue](https://hue-beta.vercel.app/)
-
 
 ## **Built with**
 
@@ -17,7 +15,6 @@ Check out the deployed version: [Hue](https://hue-beta.vercel.app/)
 - [Hero icons](https://heroicons.com/) - Hand-crafted SVG icons, by the makers of Tailwind CSS
 - [Clarifai](https://github.com/Clarifai/clarifai-javascript) - Official Clarifai JavaScript client for browsers and node.js
 - [Vercel](https://vercel.com/) - Used for deployment
-
 
 ## **Local Development setup**
 
