@@ -1,31 +1,33 @@
 import { DownloadIcon } from "@heroicons/react/outline";
-import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { canvasState, colorsState } from "../atoms/colorsState";
-import Canvas from "./Canvas";
+import { colorsState } from "../atoms/colorsState";
+import * as htmlToImage from "html-to-image";
+import download from "downloadjs";
+import ColorContainer from "./ColorContainer";
 
 function Palette() {
-  const canvas = useRecoilValue(canvasState);
   const colors = useRecoilValue(colorsState);
 
   const downloadPalette = () => {
-    canvas.toBlob(function (blob) {
-      // blob ready, download it
-      let link = document.createElement("a");
-      link.download = "palette" + ".png";
-      link.href = URL.createObjectURL(blob);
-      link.click();
-      // delete the internal blob reference, to let the browser clear memory from it
-      URL.revokeObjectURL(link.href);
-    }, "image/png");
+    htmlToImage
+      .toPng(document.getElementById("palette"))
+      .then(function (dataUrl) {
+        download(dataUrl, "palette.png");
+      });
   };
 
   return (
     <div className="flex flex-col items-center justify-start lg:place-self-start lg:px-8">
-      <div>
-        <h1 className="text-center text-lg py-4 mt-2">Generated Palette</h1>
+      <div className="h-20">
+        <h1 className="text-center text-lg py-4 mt-2 font-bold">
+          Generated Palette
+        </h1>
       </div>
-      <Canvas />
+      <div id="palette" className="w-72 md:w-[28rem] h-72">
+        {colors.map((color) => (
+          <ColorContainer key={color} color={color} h={18 / colors.length} />
+        ))}
+      </div>
       <button onClick={downloadPalette} className="button">
         <p>Download</p> <DownloadIcon className="w-6 h-6" />
       </button>
