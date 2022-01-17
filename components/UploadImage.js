@@ -39,17 +39,34 @@ function UploadImage() {
     }
   };
 
+  const clearInput = () => {
+    setImageSrc("");
+  };
+
   return (
-    <div className="flex flex-col items-center lg:place-self-end lg:px-10">
-      <div className="mt-3 text-center">
+    <div className="flex flex-col items-center lg:place-self-end px-0 lg:px-8">
+      <div className="text-center h-20">
         <p>Enter image url: </p>
-        <input
-          className="w-72 md:96 border-[1px] border-sky-700 mb-5 dark:bg-gray-800"
-          type="text"
-          onChange={(e) => setImageSrc(e.target.value)}
-        />
+        <div>
+          <input
+            className="w-72 h-8 mt-2 md:w-[22rem] border-[1px] border-sky-700 mb-5 dark:bg-gray-800"
+            type="text"
+            placeholder="www.example.com"
+            onChange={(e) => setImageSrc(e.target.value)}
+            value={imageSrc}
+          />
+          <button
+            onClick={clearInput}
+            className="bg-sky-200 cursor-pointer shadow-md h-8 px-3 text-black"
+          >
+            X
+          </button>
+        </div>
       </div>
-      <img className="w-72 md:w-96 h-64 object-cover" src={imageSrc} />
+      <img
+        className="w-[20rem] md:w-[28rem] h-72 shadow-md"
+        src={imageSrc.length ? imageSrc : placeholder}
+      />
       <button className="button mb-4" onClick={generatePalette}>
         <p>Generate Palette</p>
         <CogIcon className="w-6 h-6" />
