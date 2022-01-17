@@ -23,7 +23,7 @@ function Palette() {
           Generated Palette
         </h1>
       </div>
-      <div id="palette" className="w-72 md:w-[28rem] h-72">
+      <div id="palette" className="w-[20rem] md:w-[28rem] h-72 shadow-md">
         {colors.map((color) => (
           <ColorContainer key={color} color={color} h={18 / colors.length} />
         ))}
