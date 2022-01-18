@@ -2,7 +2,11 @@ import { CogIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { colorsState } from "../atoms/colorsState";
-import connectToClarifai from "../helper/Clarifai";
+import connectToClarifai from "../helper/clarifai";
+import {
+  extractDraggedImageDataUrl,
+  validateImageFile,
+} from "../helper/handleImage";
 
 function UploadImage() {
   const placeholder =
@@ -13,12 +17,50 @@ function UploadImage() {
   const api = connectToClarifai();
 
   useEffect(() => {
-    if (err) {
-      setTimeout(() => {
-        setErr(false);
-      }, 2500);
+    handleImage();
+  }, []);
+
+  const handleImage = () => {
+    const dropRegion = document.getElementById("drop-region");
+    dropRegion.addEventListener("dragenter", (e) => e.preventDefault());
+    dropRegion.addEventListener("dragleave", (e) => e.preventDefault());
+    dropRegion.addEventListener("dragover", (e) => e.preventDefault());
+    dropRegion.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const image = e.dataTransfer.files[0];
+      if (!image) {
+        const result = extractDraggedImageDataUrl(
+          e.dataTransfer.getData("text/html")
+        );
+        handleApiCall(result);
+      } else if (validateImageFile(image)) {
+        const rf = new FileReader();
+        rf.readAsDataURL(image);
+        rf.onloadend = (event) => {
+          handleApiCall(event.target.result);
+        };
+      }
+    });
+  };
+
+  const handleApiCall = async (result) => {
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMG_API_KEY}`;
+    const body = new FormData();
+    body.append("image", result.split(",").pop());
+    body.append("name", "test.jpg");
+    body.append("expiration", "300");
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        body: body,
+      });
+      res = await res.json();
+      console.log(res.data.url);
+      setImageSrc(res.data.url);
+    } catch (error) {
+      console.log(error);
     }
-  }, [err]);
+  };
 
   const generatePalette = () => {
     if (imageSrc !== placeholder) {
@@ -27,11 +69,9 @@ function UploadImage() {
         .then((response) => {
           let data = response.outputs[0].data.colors;
           let colorsList = data.map((color) => color.raw_hex);
-          console.log(colorsList);
           setColors(colorsList);
         })
         .catch((err) => {
-          console.log(err);
           setErr(true);
         });
     } else {
@@ -45,8 +85,8 @@ function UploadImage() {
 
   return (
     <div className="flex flex-col items-center lg:place-self-end px-0 lg:px-8">
-      <div className="text-center h-20">
-        <p>Enter image url: </p>
+      <div className="text-center h-21">
+        <p>Drag and drop image inside the box, or enter image url: </p>
         <div>
           <input
             className="w-72 h-8 mt-2 md:w-[22rem] border-[1px] border-sky-700 mb-5 dark:bg-gray-800"
@@ -63,10 +103,16 @@ function UploadImage() {
           </button>
         </div>
       </div>
-      <img
-        className="w-[20rem] md:w-[28rem] h-72 shadow-md"
-        src={imageSrc.length ? imageSrc : placeholder}
-      />
+      <div
+        id="drop-region"
+        className="border-2 border-dotted dark:border-gray-600 border-gray-200 p-10"
+      >
+        <img
+          className="w-[18rem] md:w-[26rem] h-64 shadow-md"
+          src={imageSrc.length ? imageSrc : placeholder}
+        />
+      </div>
+
       <button className="button mb-4" onClick={generatePalette}>
         <p>Generate Palette</p>
         <CogIcon className="w-6 h-6" />
