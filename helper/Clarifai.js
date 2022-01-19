@@ -1,4 +1,5 @@
 import Clarifai from "clarifai";
+import { sortColors } from "./colors";
 
 const connectToClarifai = () => {
   const app = new Clarifai.App({
@@ -14,7 +15,8 @@ export const generatePalette = (api, imageSrc, setColors, setErr) => {
       console.log(response);
       let data = response.outputs[0].data.colors;
       let colorsList = data.map((color) => color.raw_hex);
-      setColors(colorsList);
+      const sortedColors = sortColors(colorsList);
+      setColors(sortedColors);
     })
     .catch((err) => {
       setErr(true);
