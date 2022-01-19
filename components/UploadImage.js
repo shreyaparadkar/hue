@@ -30,7 +30,7 @@ function UploadImage() {
   };
 
   return (
-    <div className="flex flex-col items-center lg:place-self-end px-0 lg:px-8">
+    <div className="flex flex-col items-center lg:place-self-end px-0 lg:px-16">
       <InputBox setImageSrc={setImageSrc} imageSrc={imageSrc} />
       <ImagePreviewBox
         setImageSrc={setImageSrc}

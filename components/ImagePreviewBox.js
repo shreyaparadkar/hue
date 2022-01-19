@@ -53,10 +53,10 @@ const ImagePreviewBox = ({ imageSrc, placeholder, setImageSrc }) => {
   return (
     <div
       id="drop-region"
-      className="border-2 border-dotted dark:border-gray-600 border-gray-400 p-10"
+      className="border-2 border-dotted dark:border-gray-600 border-gray-400 w-[20rem] sm:w-[27rem] h-72 px-10 flex items-center justify-center"
     >
       <img
-        className="w-[18rem] md:w-[26rem] h-64 shadow-md"
+        className="shadow-md"
         src={imageSrc.length ? imageSrc : placeholder}
       />
     </div>

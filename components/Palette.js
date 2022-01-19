@@ -17,13 +17,16 @@ function Palette() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start lg:place-self-start lg:px-8">
-      <div className="h-20">
+    <div className="flex flex-col items-center justify-start lg:place-self-start lg:px-16">
+      <div className="h-24">
         <h1 className="text-center text-lg py-4 mt-2 font-bold">
           Generated Palette
         </h1>
       </div>
-      <div id="palette" className="w-[20rem] md:w-[28rem] h-72 shadow-md">
+      <div
+        id="palette"
+        className=" w-[20rem] sm:w-[27rem] h-72 flex-col items-center justify-center shadow-md"
+      >
         {colors.map((color) => (
           <ColorContainer key={color} color={color} h={18 / colors.length} />
         ))}

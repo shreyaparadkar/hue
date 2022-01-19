@@ -1,8 +1,8 @@
 const InputBox = ({ imageSrc, setImageSrc }) => {
   return (
-    <div className="text-center h-21">
+    <div className="text-center h-24">
       <p>Drag and drop image inside the box, or enter image url: </p>
-      <div className="inline-flex mt-2">
+      <div className="inline-flex mt-4">
         <input
           className="w-72 h-8  md:w-[22rem] border-[1px] border-sky-700 mb-5 dark:bg-gray-800"
           type="text"
