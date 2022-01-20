@@ -1,7 +1,7 @@
 import Clarifai from "clarifai";
 import { sortColors } from "./colors";
 
-const connectToClarifai = () => {
+export const connectToClarifai = () => {
   const app = new Clarifai.App({
     apiKey: process.env.NEXT_PUBLIC_API_KEY,
   });
@@ -22,5 +22,3 @@ export const generatePalette = (api, imageSrc, setColors, setErr) => {
       setErr(true);
     });
 };
-
-export default connectToClarifai;

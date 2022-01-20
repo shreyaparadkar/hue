@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { CogIcon } from "@heroicons/react/outline";
 import { colorsState } from "../atoms/colorsState";
-import connectToClarifai, { generatePalette } from "../helper/clarifai";
+import { connectToClarifai, generatePalette } from "../helper/clarifai";
 import ErrorAlert from "./ErrorAlert";
 import ImagePreviewBox from "./ImagePreviewBox";
 import InputBox from "./InputBox";
