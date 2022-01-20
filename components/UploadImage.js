@@ -10,7 +10,7 @@ import InputBox from "./InputBox";
 function UploadImage() {
   const placeholder =
     "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png";
-  const [imageSrc, setImageSrc] = useState(placeholder);
+  const [imageSrc, setImageSrc] = useState("");
   const [colors, setColors] = useRecoilState(colorsState);
   const [err, setErr] = useState(false);
   const api = connectToClarifai();
