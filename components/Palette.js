@@ -61,7 +61,7 @@ function Palette() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start lg:place-self-start lg:px-16">
+    <div className="flex flex-col items-center justify-start lg:place-self-start lg:px-9 xl:px-16">
       <div className="h-24">
         <h1 className="text-center text-lg py-4 mt-2 font-bold">
           Generated Palette
@@ -75,7 +75,7 @@ function Palette() {
           <ColorContainer key={color} color={color} h={18 / colors.length} />
         ))}
       </div>
-      <div className="inline-flex space-x-8">
+      <div className="flex flex-col items-center sm:flex-row sm:space-x-4">
         <button onClick={downloadPalette} className="button">
           <p>Download</p> <DownloadIcon className="w-6 h-6" />
         </button>
