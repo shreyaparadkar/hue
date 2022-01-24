@@ -8,10 +8,10 @@ import UploadImage from "../components/UploadImage";
 export default function Home() {
   return (
     <div>
-      <div className="min-h-screen py-4 md:px-24 px-2 pb-16 lg:pb-0 bg-white text-black dark:bg-gray-900 dark:text-white">
+      <div className="min-h-screen py-4 px-6 md:px-24 pb-16 lg:pb-0 bg-white text-black dark:bg-gray-900 dark:text-white">
         <Meta />
         <Titlebar />
-        <div className="grid lg:grid-cols-2 justify-center items-center mt-20 lg:divide-x divide-sky-600">
+        <div className="grid lg:grid-cols-2 justify-center items-center mt-16 mb-16 lg:mb-auto lg:divide-x divide-sky-600">
           <UploadImage />
           <Palette />
         </div>

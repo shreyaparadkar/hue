@@ -22,7 +22,9 @@ function Titlebar() {
     <div className="md:w-full h-24 px-2 md:h-12 flex flex-col-reverse md:flex-row items-start md:justify-between md:items-center md:mt-5">
       <div>
         <p className="text-lg font-bold">Hue</p>
-        <p className="text-sm">Generate custom color palattes from images!</p>
+        <p className="text-sm text-gray-800 dark:text-gray-400 ">
+          Generate custom color palattes from images!
+        </p>
       </div>
       {darkmode ? (
         <SunIcon

@@ -4,7 +4,7 @@
 
 @layer components {
   .button {
-    @apply cursor-pointer hover:scale-110 transition transform duration-100 ease-out flex flex-row px-8 py-2 
+    @apply cursor-pointer hover:scale-110 transition transform duration-100 ease-out flex flex-row items-center justify-center px-8 py-2 
     bg-sky-200 space-x-2 rounded-lg shadow-md mt-7 text-black
     disabled:shadow-none disabled:bg-gray-100 disabled:hover:scale-100 disabled:cursor-not-allowed;
   }
